@@ -10,7 +10,7 @@ export default{
 
 <template>
     <div class="px-2 py-5 border-2 border-black rounded-2xl w-[260px] shrink-0 h-[500px]">
-        <div class=" text-xl font-bold text-center">Basket228</div>
+        <div class=" text-xl font-bold text-center">Basket</div>
         <div class="overflow-auto h-[180px] mt-7 border-b-2 border-black">
             <BasketCardComponent></BasketCardComponent>
             <BasketCardComponent></BasketCardComponent>
