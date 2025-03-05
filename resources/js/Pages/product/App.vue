@@ -14,17 +14,21 @@ export default{
 <template>
     <MainComponent>
         <div class="flex gap-x-5">
-            <div class="flex flex-wrap gap-x-10 border-2 border-black pl-[30px] py-5 rounded-2xl ">
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
-                <CardComponent></CardComponent>
+            <div class="flex flex-col border-2 border-black pl-[35px] rounded-2xl w-full">
+                <div class=" font-bold text-xl my-5 text-center">Hit of our store</div>
+                <div class="flex flex-wrap gap-x-10">
+                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent>
+                </div>
+                <button class=" my-12 mx-auto py-3 px-14 bg-gray-300 text-2xl rounded hover:bg-yellow-500 transition-all duration-300">load all...</button>
             </div>
             <BasketComponent></BasketComponent>
         </div>

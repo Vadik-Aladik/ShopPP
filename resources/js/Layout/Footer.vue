@@ -4,7 +4,7 @@ export default{
 }
 </script>
 <template>
-    <footer class="h-[200px] bg-black text-col text-white rounded-t-2xl text-base flex items-center">
+    <footer class="h-[200px] bg-black text-col text-white rounded-t-2xl text-base flex items-center mt-5">
         <div class="container mx-auto flex justify-between">
             <div class=" my-auto">
                 <div class="text-2xl font-bold text-yellow-500">techSHOP</div>

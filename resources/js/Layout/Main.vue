@@ -19,8 +19,8 @@ export default{
 
         <div class="container mx-auto flex-grow">
             <div class="my-5 flex justify-end">
-                <input class=" focus:outline-none h-6 w-[300px] border-2 border-black px-3 py-4 rounded-md" placeholder="enter request..." type="text">
-                <button class=" w-20 h-9 bg-black text-white rounded-md ">search</button>
+                <input class=" focus:outline-none h-6 w-[300px] border-2 border-black px-3 py-4 rounded-l-md" placeholder="enter request..." type="text">
+                <button class=" w-20 h-9 bg-black text-white rounded-r-md ">search</button>
             </div>
 
             <div class="">

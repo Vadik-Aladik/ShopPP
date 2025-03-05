@@ -17,3 +17,9 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('product/App');
 });
+Route::get('/show', function () {
+    return Inertia::render('product/Show');
+});
+Route::get('/order', function () {
+    return Inertia::render('product/Order');
+});
