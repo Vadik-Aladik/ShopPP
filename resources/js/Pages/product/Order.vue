@@ -12,7 +12,7 @@ export default{
 
 <template>
     <MainComponent>
-        <div class=" flex">
+        <div class=" flex gap-x-5">
             <div class="flex flex-col border-2 border-black px-[100px] rounded-2xl w-full">
                 <div class=" text-center my-5 font-bold text-xl">Your'e Basket</div>
                 <div class=" mb-3">
@@ -45,14 +45,16 @@ export default{
                             <div class="text-lg font-medium">totalPrice</div>
                         </div>
                     </div>
+
+                    
                 </div>
             </div>
 
-            <div class="px-2 py-5 border-2 border-black rounded-2xl w-[260px]">
-                <div class=" font-bold text-center">placing in order</div>
-                <div>all count product - 4</div>
-                <div>total price - <span class=" text-green-700 font-bold">999.999.999$</span></div>
-                <button class=" px-8 py-3 bg-gray-300 rounded">place an order</button>
+            <div class="px-2 py-5 border-2 border-black rounded-2xl w-[260px] h-60">
+                <div class=" font-bold text-center text-xl">placing in order</div>
+                <div class="mt-5">all count product - 4</div>
+                <div class=" mt-2">total price - <span class=" text-green-700 font-bold">999.999.999$</span></div>
+                <button class="mt-5 block mx-auto text-center py-1 px-9 bg-gray-300 rounded hover:bg-yellow-500 transition-all duration-300">place an order</button>
             </div>
         </div>
 

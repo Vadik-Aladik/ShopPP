@@ -23,3 +23,6 @@ Route::get('/show', function () {
 Route::get('/order', function () {
     return Inertia::render('product/Order');
 });
+Route::get('/personal', function () {
+    return Inertia::render('Users/Personal');
+});

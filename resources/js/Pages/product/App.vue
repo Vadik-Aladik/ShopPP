@@ -16,7 +16,7 @@ export default{
         <div class="flex gap-x-5">
             <div class="flex flex-col border-2 border-black pl-[35px] rounded-2xl w-full">
                 <div class=" font-bold text-xl my-5 text-center">Hit of our store</div>
-                <div class="flex flex-wrap gap-x-10">
+                <div class="flex flex-wrap gap-x-10 gap-y-5">
                     <CardComponent></CardComponent>
                     <CardComponent></CardComponent>
                     <CardComponent></CardComponent>
