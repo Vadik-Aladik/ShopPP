@@ -42,9 +42,9 @@ export default{
                 <div class=" text-red-600 text-sm" v-if="errors.name">{{ errors.name[0] }}</div>
                 <input v-model="email" class="w-[380px] focus:outline-none border-2 border-black rounded py-1 px-[10px]" placeholder="enter you email" type="text">
                 <div class=" text-red-600 text-sm" v-if="errors.email">{{ errors.email[0] }}</div>
-                <input v-model="password" class="w-[380px] focus:outline-none border-2 border-black rounded py-1 px-[10px]" placeholder="enter password" type="text">
+                <input v-model="password" class="w-[380px] focus:outline-none border-2 border-black rounded py-1 px-[10px]" placeholder="enter password" type="password">
                 <div class=" text-red-600 text-sm" v-if="errors.password">{{ errors.password[0] }}</div>
-                <input v-model="passwordConfirm" class="w-[380px] focus:outline-none border-2 border-black rounded py-1 px-[10px]" placeholder="enter password again" type="text">
+                <input v-model="passwordConfirm" class="w-[380px] focus:outline-none border-2 border-black rounded py-1 px-[10px]" placeholder="enter password again" type="password">
                 <div class=" text-red-600 text-sm" v-if="errors.passwordConfirm">{{ errors.passwordConfirm[0] }}</div>
                 <div class="flex flex-col items-center gap-y-1">
                     <button @click.prevent="store()" class="py-3 px-14 bg-gray-300 text-2xl rounded hover:bg-yellow-500 transition-all duration-300">LOGIN</button>
