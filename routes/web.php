@@ -26,12 +26,10 @@ Route::get('/order', function () {
 Route::get('/personal', function () {
     return Inertia::render('Users/Personal');
 });
-Route::get('/registration', function () {
-    return Inertia::render('Users/Registration');
-});
-Route::get('/login', function () {
-    return Inertia::render('Users/Login');
-});
+Route::get('/registration', [App\Http\Controllers\AuthController::class, 'registration']);
+Route::post('/registration', [App\Http\Controllers\AuthController::class, 'store']);
+Route::get('/login', [App\Http\Controllers\AuthController::class, 'login']);
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'authentify']);
 
 Route::get('/admin', function () {
     return Inertia::render('Admin/Admin');
