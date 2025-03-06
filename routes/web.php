@@ -26,3 +26,16 @@ Route::get('/order', function () {
 Route::get('/personal', function () {
     return Inertia::render('Users/Personal');
 });
+Route::get('/registration', function () {
+    return Inertia::render('Users/Registration');
+});
+Route::get('/login', function () {
+    return Inertia::render('Users/Login');
+});
+
+Route::get('/admin', function () {
+    return Inertia::render('Admin/Admin');
+});
+Route::get('/add', function () {
+    return Inertia::render('Admin/Add');
+});
