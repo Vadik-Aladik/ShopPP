@@ -85,11 +85,11 @@ export default{
                         <div class="overflow-hidden text-ellipsis text-lg">Add new product</div>
                         <button class=" w-[200px] h-9 bg-gray-300 rounded mt-1 hover:bg-yellow-500 transition-all duration-300">edit product</button>
                     </div>
+                    <!-- <CardComponent></CardComponent>
                     <CardComponent></CardComponent>
                     <CardComponent></CardComponent>
                     <CardComponent></CardComponent>
-                    <CardComponent></CardComponent>
-                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent> -->
                 </div>
                 <button class=" my-[30px] mx-auto py-3 px-14 bg-gray-300 text-2xl rounded hover:bg-yellow-500 transition-all duration-300">load all...</button>
             </div>

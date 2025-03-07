@@ -7,9 +7,6 @@ export default{
         HeaderComponent,
         FooterComponent,
     },
-    mounted(){
-        console.log('sdsads');
-    }
 }
 </script>
 

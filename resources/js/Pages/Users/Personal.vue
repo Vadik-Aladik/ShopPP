@@ -79,5 +79,5 @@ export default{
         </div>
     </MainComponent>
 
-    <OrderUserComponent></OrderUserComponent>
+    <!-- <OrderUserComponent></OrderUserComponent> -->
 </template>

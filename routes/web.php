@@ -14,18 +14,17 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('product/App');
-});
+Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('index');
+Route::post('/', [App\Http\Controllers\IndexController::class, 'getProducts']);
 Route::get('/show', function () {
     return Inertia::render('product/Show');
-});
+})->name('show');
 Route::get('/order', function () {
     return Inertia::render('product/Order');
-});
+})->name('order');
 Route::get('/personal', function () {
     return Inertia::render('Users/Personal');
-});
+})->name('personal');
 Route::get('/registration', [App\Http\Controllers\AuthController::class, 'registration'])->name('user.registration');
 Route::post('/registration', [App\Http\Controllers\AuthController::class, 'store']);
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'login']);
@@ -34,6 +33,5 @@ Route::post('/login', [App\Http\Controllers\AuthController::class, 'authentify']
 Route::get('/admin', function () {
     return Inertia::render('Admin/Admin');
 });
-Route::get('/add', function () {
-    return Inertia::render('Admin/Add');
-});
+Route::get('/add', [App\Http\Controllers\AdminController::class, 'add'])->name('admin.add');
+Route::post('/add', [App\Http\Controllers\AdminController::class, 'store']);
