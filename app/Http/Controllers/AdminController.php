@@ -19,6 +19,11 @@ class AdminController extends Controller
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
+        if(count($data['images']) != 4){
+            return response()->json([
+                'created'=>false
+            ]);
+        }
         $product = Product::create([
             'title' => $data['title'],
             'description' => $data['description'],

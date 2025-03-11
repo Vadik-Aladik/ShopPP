@@ -21,6 +21,7 @@ export default{
             this.images.forEach((image) => {
                 formData.append('images[]', image);
             });
+
             const res = await axios.post('/add', formData);
             console.log(res);
 
