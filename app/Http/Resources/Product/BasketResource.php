@@ -16,9 +16,20 @@ class BasketResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'price' => $this->price,
-            'img' => url('storage/'. $this->images[0]->url)
+            'title' => $this->info[0]['title'],
+            'price' => $this->info[0]['price'],
+            'img' => url('storage/', $this->img[0]->url),
         ];
+        // return [
+        //     'id' => $this->id,
+        //     'product' => $this->info 
+        //     //[
+        //     //     'id' => $this->product->id,
+        //     //     'title' => $this->product->title,
+        //     //     'price' => $this->product->price,
+        //     //     // 'img' => url('storage/'. $this->product->images[0]->url) // если у вас есть изображения
+        //     // ],
+        //     // Другие поля, если необходимо
+        // ];
     }
 }

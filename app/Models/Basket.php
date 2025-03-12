@@ -11,8 +11,13 @@ class Basket extends Model
 
     protected $guarded = [];
 
-    public function basket()
+    public function info()
     {
-        return $this->hasOne(Product::class, 'id_product', 'id');
+        return $this->hasMany(Product::class, 'id', 'id_product');
+    }
+
+    public function img()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id', 'id_product');
     }
 }

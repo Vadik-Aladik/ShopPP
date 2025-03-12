@@ -20,7 +20,8 @@ Route::post('/', [App\Http\Controllers\IndexController::class, 'getProducts']);
 Route::get('/show/{id}', [App\Http\Controllers\IndexController::class, 'show'])->name('show');
 Route::post('/addBasket/{id}', [App\Http\Controllers\IndexController::class, 'addBasket'])->name('basket.add');
 
-Route::post('basket', [App\Http\Controllers\IndexController::class, 'basket'])->name('basket');
+Route::post('/basket', [App\Http\Controllers\IndexController::class, 'basket'])->name('basket');
+Route::post('/delete/{id}', [App\Http\Controllers\IndexController::class, 'delete'])->name('delete');
 
 Route::get('/order', function () {
     return Inertia::render('product/Order');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Product\BasketResource;
 use App\Http\Resources\Product\GetResource;
 use App\Http\Resources\Product\ShowResource;
 use App\Models\Basket;
@@ -25,7 +26,7 @@ class IndexController extends Controller
     public function show($id)
     {
         $data = Product::with('images')->where('id', $id)->get();
-        $resource = ShowResource::collection(resource: $data)->resolve();
+        $resource = ShowResource::collection($data)->resolve();
         $basket = Basket::where('id_product',$id)->where('id_user', auth()->id())->get();
         return Inertia::render('product/Show', ['product' => $resource, 'basket' => $basket]);
     }
@@ -47,5 +48,18 @@ class IndexController extends Controller
                 'inBasket' => false,
             ]);
         }
+    }
+
+    public function basket()
+    {
+        $user = auth()->id();
+        $basket = Basket::with('info')->with('img')->where('id_user', $user)->get();
+        return BasketResource::collection($basket)->resolve();
+    }
+
+    public function delete($id)
+    {
+        $user = auth()->id();
+        Basket::where('id_user',$user)->where('id_product',$id)->delete();
     }
 }
