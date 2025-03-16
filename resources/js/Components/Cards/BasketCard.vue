@@ -7,7 +7,7 @@ export default{
     methods:{
         async deleteProduct(id){
             const res = await axios.post(route('delete', id));
-            console.log(`product `);
+            console.log(`product del`, res);
         }
     }
 }

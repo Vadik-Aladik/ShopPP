@@ -67,17 +67,17 @@ export default{
             <div class=" flex flex-col mt-5">
                 <div class=" font-bold">Favorites</div>
                 <div class="flex flex-wrap gap-x-6 gap-y-5 mt-[10px]">
+                    <!-- <CardComponent></CardComponent>
                     <CardComponent></CardComponent>
                     <CardComponent></CardComponent>
                     <CardComponent></CardComponent>
                     <CardComponent></CardComponent>
-                    <CardComponent></CardComponent>
-                    <CardComponent></CardComponent>
+                    <CardComponent></CardComponent> -->
                 </div>
                 <button class=" my-[30px] mx-auto py-3 px-14 bg-gray-300 text-2xl rounded hover:bg-yellow-500 transition-all duration-300">load all...</button>
             </div>
         </div>
     </MainComponent>
 
-    <!-- <OrderUserComponent></OrderUserComponent> -->
+    <OrderUserComponent></OrderUserComponent>
 </template>

@@ -15,9 +15,10 @@ class BasketResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
+            'id' => $this->info[0]->id,
             'title' => $this->info[0]['title'],
             'price' => $this->info[0]['price'],
+            'count' => 1,
             'img' => url('storage/', $this->img[0]->url),
         ];
         // return [

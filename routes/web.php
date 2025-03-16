@@ -23,9 +23,9 @@ Route::post('/addBasket/{id}', [App\Http\Controllers\IndexController::class, 'ad
 Route::post('/basket', [App\Http\Controllers\IndexController::class, 'basket'])->name('basket');
 Route::post('/delete/{id}', [App\Http\Controllers\IndexController::class, 'delete'])->name('delete');
 
-Route::get('/order', function () {
-    return Inertia::render('product/Order');
-})->name('order');
+Route::get('/order', [App\Http\Controllers\IndexController::class, 'order'])->name('order');
+Route::post('/order', [App\Http\Controllers\IndexController::class, 'placing'])->name('order.placing');
+
 Route::get('/personal', function () {
     return Inertia::render('Users/Personal');
 })->name('personal');

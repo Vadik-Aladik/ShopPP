@@ -62,4 +62,19 @@ class IndexController extends Controller
         $user = auth()->id();
         Basket::where('id_user',$user)->where('id_product',$id)->delete();
     }
+
+    public function order()
+    {
+        $user = auth()->id();
+        $basket = Basket::where('id_user',$user)->get();
+        $collection = BasketResource::collection($basket)->resolve();
+        return Inertia::render('product/Order', [
+            'basketUser_inOrder' => $collection,
+        ]);
+    }
+
+    public function placing()
+    {
+        
+    }
 }
