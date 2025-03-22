@@ -8,6 +8,12 @@ export default{
     ],
     components:{
         Link
+    },
+    methods:{
+        async addBasket(idProduct){
+            const res = await axios.post(route('basket.add', idProduct));
+            console.log(res);
+        },
     }
 }
 </script>
@@ -19,6 +25,6 @@ export default{
         <div class=" flex justify-between text-lg">
             <p>${{ productInfo.price }}</p>
         </div>
-        <button class=" w-[200px] h-9 bg-gray-300 rounded mt-1 hover:bg-yellow-500 transition-all duration-300">add product</button>
     </Link>
+        <!-- <button class=" w-[200px] h-9 bg-gray-300 rounded mt-1 hover:bg-yellow-500 transition-all duration-300" @click="addBasket(productInfo.id)">add product</button> -->
 </template>

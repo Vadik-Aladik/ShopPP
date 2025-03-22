@@ -37,7 +37,8 @@ export default{
                         <CardComponent :productInfo="product"></CardComponent>
                     </div>
                 </div>
-                <button class=" my-12 mx-auto py-3 px-14 bg-gray-300 text-2xl rounded hover:bg-yellow-500 transition-all duration-300">load all...</button>
+                <div class="my-12"></div>
+                <!-- <button class=" my-12 mx-auto py-3 px-14 bg-gray-300 text-2xl rounded hover:bg-yellow-500 transition-all duration-300">load all...</button> -->
             </div>
             <BasketComponent></BasketComponent>
         </div>

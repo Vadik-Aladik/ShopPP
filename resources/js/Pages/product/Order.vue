@@ -10,12 +10,15 @@ export default{
     data(){
         return{
             product: this.basketUser_inOrder,
+            favoriteProduct: this.favorite,
             totalPrice: 0,
             beginPrice:0,
+            favoriteFlag: false
         }
     },
     props:[
-        'basketUser_inOrder'
+        'basketUser_inOrder',
+        'favorite'
     ],
     methods:{
         plus(index){
@@ -49,14 +52,41 @@ export default{
             });
             return count;
         },
+        favoriteCheck(elem){
+            return this.favoriteProduct.some(favorElem => elem === favorElem.id_product);
+        },
+
         async deleteProduct(id, index){
             this.product.splice(index, 1);
             const res = await axios.post(route('delete', id));
             // console.log(`product del`, res, this.product);
-        }
+        },
+        async placing(){
+            if(this.product.length > 0){
+                const orderData = this.product.map(item => ({
+                    id_product: item.id,
+                    quantity: item.count
+                }));
+                const res = await axios.post('/order', orderData);
+                this.product.splice(0, this.product.length);
+                alert(`Вы успешно оформили заказ. Номер вашего заказа - ${res.data.id_order}`);
+            }
+        },
+        async addFavorite(idProduct){
+            const res = await axios.post(route('favorite.add', idProduct));
+            console.log(res);
+            this.favoriteProduct.push({ id_product: idProduct });
+        },
+
+        async removeFavorite(idProduct, index){
+            const res = await axios.post(route('favorite.remove', idProduct));
+            console.log(res);
+            this.favoriteProduct = this.favoriteProduct.filter(favorElem => favorElem.id_product !== idProduct);
+        },
+        
     },
     mounted(){
-        console.log(this.product);
+        console.log(this.product, this.favorite);
     }
 }
 </script>
@@ -76,9 +106,15 @@ export default{
                                 <div class="flex flex-col justify-between ml-5">
                                     <div>{{elem.title}}</div>
                                     <div class="flex w-16 justify-between items-center">
-                                        <div class="group transition-all duration-300 cursor-pointer">
-                                            <img class=" w-6 group-hover:hidden" src="/public/icons/favorite.svg" alt="Favorite">
-                                            <img class=" w-6 hidden group-hover:block" src="/public/icons/FavoriteHover.svg" alt="Favorite">
+                                        <!-- {{ console.log(favoriteCheck(elem.id))  }} -->
+                                        <div v-if="favoriteCheck(elem.id)">
+                                            <img class="w-6" src="/public/icons/FavoriteAdded.svg" alt="Favorite" @click.prevent="removeFavorite(elem.id, index)">
+                                        </div>
+                                        <div v-else>
+                                            <div class="group transition-all duration-300 cursor-pointer" @click.prevent="addFavorite(elem.id)">
+                                                <img class=" w-6 group-hover:hidden" src="/public/icons/favorite.svg" alt="Favorite">
+                                                <img class=" w-6 hidden group-hover:block" src="/public/icons/FavoriteHover.svg" alt="Favorite">
+                                            </div>
                                         </div>
 
                                         <div class="group transition-all duration-300 cursor-pointer" @click.prevent="deleteProduct(elem.id, index)">
@@ -107,9 +143,10 @@ export default{
                 <div class=" font-bold text-center text-xl">placing in order</div>
                 <div class="mt-5">all count product - {{ countProduct() }}</div>
                 <div class=" mt-2">total price - <span class=" text-green-700 font-bold">{{total()}}$</span></div>
-                <button class="mt-5 block mx-auto text-center py-1 px-9 bg-gray-300 rounded hover:bg-yellow-500 transition-all duration-300">place an order</button>
+                <button class="mt-5 block mx-auto text-center py-1 px-9 bg-gray-300 rounded hover:bg-yellow-500 transition-all duration-300" @click.prevent="placing()" >place an order</button>
             </div>
         </div>
 
     </MainComponent>
 </template>
+

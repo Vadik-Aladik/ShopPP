@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests\Store;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OrderRequest extends FormRequest
+class StatusRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,8 @@ class OrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            '*.id_product' => 'required',
-            '*.quantity' => 'required',
+            'id_order' => 'required',
+            'order_status' => 'required|string'
         ];
     }
 }

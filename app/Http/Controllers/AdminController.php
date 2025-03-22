@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Admin\StoreRequest;
+use App\Http\Requests\StatusRequest;
+use App\Http\Resources\Product\GetResource;
+use App\Models\ListOrder;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
@@ -39,6 +42,38 @@ class AdminController extends Controller
         }
         return response()->json([
             'created' => true
+        ]);
+    }
+
+    public function admin()
+    {
+        return Inertia::render('Admin/Admin');
+    }
+
+    public function adminData()
+    {
+        $user = auth()->user();
+        $orders = ListOrder::with(['orders.product'])->get();
+        $product = Product::with('images')->get();
+        $productList = GetResource::collection($product)->resolve();
+
+        return response()->json([
+            'user' => $user,
+            'orders' => $orders,
+            'products' => $productList
+        ]);
+    }
+
+    public function status(StatusRequest $request)
+    {
+        $data = $request->validated();
+
+        ListOrder::where("id", $data['id_order'])->update([
+            "status" => $data["order_status"]
+        ]);
+
+        return response()->json([
+            'data'=> $data,
         ]);
     }
 }

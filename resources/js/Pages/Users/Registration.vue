@@ -1,9 +1,13 @@
 <script>
 import axios from 'axios';
-import { router } from '@inertiajs/vue3';
+import { router, Link } from '@inertiajs/vue3';
+import { route } from 'ziggy-js';
 
 export default{
     name: 'RegistrationComponent',
+    components:{
+        Link
+    },
     data(){
         return{
             name: '',
@@ -48,7 +52,7 @@ export default{
                 <div class=" text-red-600 text-sm" v-if="errors.passwordConfirm">{{ errors.passwordConfirm[0] }}</div>
                 <div class="flex flex-col items-center gap-y-1">
                     <button @click.prevent="store()" class="py-3 px-14 bg-gray-300 text-2xl rounded hover:bg-yellow-500 transition-all duration-300">LOGIN</button>
-                    <a class=" text-base" href="#">have an account?</a>
+                    <Link :href="route('user.login')" class=" text-base" href="#">have an account?</Link>
                 </div>
             </div>
         </div>
